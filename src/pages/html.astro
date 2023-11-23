@@ -1,0 +1,298 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Header from "../components/Header.astro";
+import ThemeIcon from "../components/ThemeIcon.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout title="Welcome to Astro.">
+    <main class="max-w-7xl m-auto">
+        <div class="top-2 w-full p-5">
+            <div class="flex gap-5 flex-row justify-between items-center">
+                <div class="flex items-center gap-10">
+                    <img src="/assets/img/html5.svg" alt="html5" width="40px" />
+                    <span class="text-stone-50">HTML5</span>
+                </div>
+                <div class="flex items-center">
+                    <!-- Ensure ThemeIcon has content or proper settings -->
+                    <ThemeIcon />
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="p-5 pt-5 md:p-10 flex-col lg:flex-row lg:flex lg:gap-12 max-w-7xl m-auto h-screen flex items-center mt-10"
+        >
+            <div class="lg:mt-[-300px] w-full">
+                <div class="text-stone-300 italic font-thin block lg:mt-10">
+                    Question <span id="question-number">1</span> of 10
+                </div>
+
+                <h1
+                    class="text-stone-50 mt-10 text-2xl text-semibold font-semibold"
+                    id="question-text"
+                >
+                    What does HTML stand for?
+                </h1>
+
+                <div id="meterContainer"></div>
+
+                <div id="options-container"></div>
+            </div>
+
+            <!-- <div class="w-full">
+            <input
+                class="text-2xl rounded-3xl text-white font-semibold p-5 mt-10 w-full bg-[#A629F5]"
+                type="button"
+                value="Submit answer"
+                id="submit-answer"
+            />
+        </div> -->
+        </div>
+
+        <div
+            class="fixed inset-0 flex items-center justify-center z-50 hidden items-center justify-center"
+            id="modal"
+        >
+            <div
+                class="h-[250px] mt-[270px] bg-white p-4 rounded shadow-lg w-full m-auto text-center"
+            >
+                <p class="text-lg">Are you sure?</p>
+                <button
+                    class="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
+                    id="modalCloseButton">Close</button
+                >
+            </div>
+        </div>
+    </main>
+    <Footer />
+</Layout>
+
+<script>
+    // Function to build the meter dynamically
+    function openModal() {
+        const modal = document.getElementById("modal");
+        modal.classList.remove("hidden");
+    }
+
+    function closeModal() {
+        const modal = document.getElementById("modal");
+        modal.classList.add("hidden");
+    }
+
+    const topicsHTML = {
+        questions: [
+            {
+                id: 1,
+                question: "What does HTML stand for?",
+                options: [
+                    "Hyper Text Markup Language",
+                    "Hyperlinks and Text Markup Language",
+                    "Home Tool Markup Language",
+                    "Hyper Tool Markup Language",
+                ],
+                answer: "Hyper Text Markup Language",
+            },
+            {
+                id: 2,
+                question:
+                    "Which tag is used to define an unordered list in HTML?",
+                options: ["<ul>", "<ol>", "<list>", "<li>"],
+                answer: "<ul>",
+            },
+            {
+                id: 3,
+                question: "Which tag is used to create a hyperlink in HTML?",
+                options: ["<a>", "<link>", "<href>", "<ref>"],
+                answer: "<a>",
+            },
+            {
+                id: 4,
+                question:
+                    "Which HTML attribute specifies an alternate text for an image?",
+                options: ["alt", "title", "src", "href"],
+                answer: "alt",
+            },
+            {
+                id: 5,
+                question: "What does CSS stand for?",
+                options: [
+                    "Cascading Style Sheets",
+                    "Creative Style Sheets",
+                    "Computer Style Sheets",
+                    "Colorful Style Sheets",
+                ],
+                answer: "Cascading Style Sheets",
+            },
+            {
+                id: 6,
+                question:
+                    "Which HTML tag is used to define the structure of an HTML document?",
+                options: ["<html>", "<body>", "<head>", "<DOCTYPE html>"],
+                answer: "<html>",
+            },
+            {
+                id: 7,
+                question: "Which tag is used to define a table row in HTML?",
+                options: ["<tr>", "<table>", "<td>", "<th>"],
+                answer: "<tr>",
+            },
+            {
+                id: 8,
+                question: "What does the '<aside>' tag in HTML represent?",
+                options: ["A footer", "A sidebar", "An article", "A section"],
+                answer: "A sidebar",
+            },
+            {
+                id: 9,
+                question:
+                    "Which HTML tag is used for creating an ordered list?",
+                options: ["<ol>", "<ul>", "<li>", "<list>"],
+                answer: "<ol>",
+            },
+            {
+                id: 10,
+                question: "What does the '<hr>' tag in HTML stand for?",
+                options: [
+                    "Horizontal Rule",
+                    "Header",
+                    "Highlight Row",
+                    "Hyper Reference",
+                ],
+                answer: "Horizontal Rule",
+            },
+        ],
+    };
+
+    const questionContainer = document.getElementById("question-text");
+    const questionNumberContainer = document.getElementById("question-number");
+    const optionsContainer = document.getElementById("options-container");
+    const submitButton = document.getElementById("submit-answer");
+
+    let currentQuestionIndex = 0;
+
+    // Display initial question
+    displayQuestion(currentQuestionIndex);
+
+    // Function to display a question
+    function displayQuestion(index) {
+        const currentQuestion = topicsHTML.questions[index];
+
+        // Update question text
+        questionContainer.innerText = currentQuestion.question;
+
+        // Update question number
+        questionNumberContainer.innerText = index + 1;
+
+        // Clear options container
+        optionsContainer.innerHTML = "";
+
+        // Create option elements for each option
+        currentQuestion.options.forEach((option) => {
+            const optionElement = document.createElement("a");
+            optionElement.classList.add(
+                "block",
+                "bg-[#3C4D67]",
+                "hover:bg-[#199AFC]",
+                "text-stone-200",
+                "font-semibold",
+                "p-4",
+                "rounded-lg",
+                "my-2",
+                "transition",
+                "duration-200",
+            );
+            optionElement.innerText = option;
+
+            // Check if the selected answer is correct
+            const isCorrectAnswer = option === currentQuestion.answer;
+
+            // Set the background color based on the correctness
+            if (isCorrectAnswer) {
+                optionElement.classList.add("bg-green");
+            } else {
+                optionElement.classList.add("bg-red");
+            }
+
+            optionsContainer.appendChild(optionElement);
+        });
+
+        // Add click event listener to options
+        const optionElements = optionsContainer.querySelectorAll("a");
+        optionElements.forEach((optionElement, index) => {
+            optionElement.addEventListener("click", () => {
+                const selectedAnswer = currentQuestion.options[index];
+                const isCorrectAnswer = checkAnswer(
+                    selectedAnswer,
+                    currentQuestion.answer,
+                );
+            });
+        });
+    }
+
+    // Function to check the selected answer
+
+    let meterValue = 0.0; // Initial value
+    const totalQuestions = topicsHTML.questions.length;
+    let meterElement = null;
+
+    function checkAnswer(selectedAnswer, correctAnswer) {
+        if (selectedAnswer === correctAnswer) {
+            // Increment question index
+            currentQuestionIndex++;
+
+            if (currentQuestionIndex < topicsHTML.questions.length) {
+                // Display next question
+                displayQuestion(currentQuestionIndex);
+
+                meterValue += 0.1; // Increment meter value
+                buildMeter(meterValue); // Update the meter value
+            } else {
+                // All questions answered
+                questionContainer.innerHTML =
+                    "<h2>All questions answered!</h2>";
+
+                    meterValue += 0.1; // Increment meter value
+                buildMeter(meterValue); // Update the meter value
+
+                //redirect to the home
+                setTimeout(() => {
+                    
+                    window.location.href = "/";
+
+                }, 2000)
+            }
+        } else {
+            // Open the modal
+            openModal();
+        }
+    }
+
+    function buildMeter(value) {
+        const meterContainer = document.getElementById("meterContainer");
+
+        // Calculate the maximum value
+        const max = totalQuestions * 0.1;
+
+        if (meterElement) {
+            // Update the existing meter element
+            meterElement.value = value;
+            meterElement.max = max;
+        } else {
+            // Create the <meter> element
+            meterElement = document.createElement("meter");
+            meterElement.className = "w-full";
+            meterElement.value = value;
+            meterElement.max = max;
+
+            // Append the <meter> element to the container
+            meterContainer.appendChild(meterElement);
+        }
+    }
+
+    const modalCloseButton = document.getElementById("modalCloseButton");
+    modalCloseButton.addEventListener("click", closeModal);
+</script>
+
+<style></style>

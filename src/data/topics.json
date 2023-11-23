@@ -1,0 +1,30 @@
+{
+    "webTechnologies": {
+      "HTML": {
+        "description": "HTML (HyperText Markup Language) is the standard markup language for creating web pages.",
+        "usage": "Defines the structure and content of web pages.",
+        "example": "<!DOCTYPE html>\n<html>\n  <head>\n    <title>My Web Page</title>\n  </head>\n  <body>\n    <h1>Hello, World!</h1>\n    <p>This is an example of HTML.</p>\n  </body>\n</html>"
+      },
+      "CSS": {
+        "description": "CSS (Cascading Style Sheets) is used for styling HTML elements on web pages.",
+        "usage": "Controls the presentation, layout, and design of web pages.",
+        "example": "body {\n  font-family: Arial, sans-serif;\n  background-color: #f0f0f0;\n}\nh1 {\n  color: blue;\n}"
+      },
+      "JavaScript": {
+        "description": "JavaScript is a scripting language used to create dynamic and interactive web content.",
+        "usage": "Adds interactivity, manipulates content, and enhances user experience.",
+        "example": "document.getElementById('demo').innerHTML = 'Hello, World!';"
+      },
+      "Accessibility": {
+        "description": "Accessibility in web development refers to creating websites and applications that can be used by everyone, including people with disabilities.",
+        "importance": "Ensures equal access and usability for all users.",
+        "guidelines": [
+          "Use semantic HTML for proper structure.",
+          "Provide alternative text for images (alt text).",
+          "Ensure proper keyboard navigation.",
+          "Implement ARIA roles and attributes."
+        ]
+      }
+    }
+  }
+  
