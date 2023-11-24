@@ -6,19 +6,21 @@ import ThemeIcon from "../components/ThemeIcon.astro";
 import Footer from "../components/Footer.astro";
 ---
 
-<Layout title="Frontend Quiz: Pon a prueba tus conocimientos de HTML, CSS, JavaScript y Accesibilidad">
+<Layout
+    title="Frontend Quiz: Pon a prueba tus conocimientos de HTML, CSS, JavaScript y Accesibilidad"
+>
     <main class="max-w-7xl m-auto">
         <div class="top-2 w-full p-5">
             <div class="flex gap-5 flex-row justify-between items-center">
                 <div class="flex items-center gap-10">
-                  <img src="/assets/img/html5.svg" alt="html5" width="60px" />
-                  <!-- <span class="text-stone-50 text-3xl font-semibold dark:text-stone-50 text-[#7e7e7e]">HTML5</span> -->
+                    <img src="/assets/img/html5.svg" alt="html5" width="60px" />
+                    <!-- <span class="text-stone-50 text-3xl font-semibold dark:text-stone-50 text-[#7e7e7e]">HTML5</span> -->
                 </div>
                 <div class="flex items-center">
-                  <!-- Ensure ThemeIcon has content or proper settings -->
-                  <ThemeIcon />
+                    <!-- Ensure ThemeIcon has content or proper settings -->
+                    <ThemeIcon />
                 </div>
-              </div>
+            </div>
         </div>
 
         <div
@@ -46,35 +48,31 @@ import Footer from "../components/Footer.astro";
                         class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
                         >Go Back 👈🏻</button
                     ></a
-                >  
+                >
 
                 <!-- Here links to the other questionaries CSS and JavaScript will be added and Accesibility -->
-
-               
-
             </div>
         </div>
 
         <div
-        class="fixed inset-0 flex z-50 hidden items-center justify-center"
-        id="modal"
-    >
-        <div
-            class="h-[250px] mt-[320px] bg-white p-4 rounded shadow-lg w-1/3 m-auto text-center relative"
+            class="fixed inset-0 flex z-50 hidden items-center justify-center"
+            id="modal"
         >
-            <p class="text-lg">Are you sure?</p>
-            <button
-                class="mt-4 px-4 py-2 bg-blue-500 text-white rounded absolute top-2 right-2"
-                id="modalCloseButton"
+            <div
+                class="h-[250px] mt-[20px] bg-white p-4 rounded shadow-lg w-1/3 relative flex justify-center items-center"
             >
-                X
-            </button>
+                <p class="text-lg font-bold">Are you sure?</p>
+                <button
+                    class="mt-4 px-4 py-2 bg-blue-500 text-white rounded absolute top-2 right-2"
+                    id="modalCloseButton"
+                >
+                    X
+                </button>
+            </div>
         </div>
-    </div>
-    </div>
     </main>
-    <Footer />
 </Layout>
+<Footer />
 
 <script>
     // Function to build the meter dynamically
@@ -89,119 +87,124 @@ import Footer from "../components/Footer.astro";
     }
 
     const topicsHTML = {
-    questions: [
-        {
-            id: 1,
-            question: "What is the purpose of the HTML 'data' attribute?",
-            options: [
-                "To store custom data for an HTML element.",
-                "To define a dataset in HTML.",
-                "To link external data sources to an HTML document.",
-                "To validate input fields in HTML forms."
-            ],
-            answer: "To store custom data for an HTML element."
-        },
-        {
-            id: 2,
-            question: "Explain the functionality of the 'figure' and 'figcaption' elements in HTML.",
-            options: [
-                "They are used for embedding videos in HTML.",
-                "They create images with captions in HTML.",
-                "They structure forms and input elements in HTML.",
-                "They are utilized for audio playback in HTML."
-            ],
-            answer: "They create images with captions in HTML."
-        },
-        {
-            id: 3,
-            question: "Describe the use of the 'details' and 'summary' elements in HTML5.",
-            options: [
-                "They are used for defining mathematical formulas in HTML.",
-                "They provide a summary of a web page's content.",
-                "They structure data tables in HTML.",
-                "They create collapsible content sections in HTML."
-            ],
-            answer: "They create collapsible content sections in HTML."
-        },
-        {
-            id: 4,
-            question: "What does the 'download' attribute do in HTML?",
-            options: [
-                "It initiates a file upload when clicked.",
-                "It triggers an automatic download of a linked resource.",
-                "It enables dynamic content loading in HTML documents.",
-                "It defines the font used for text in HTML elements."
-            ],
-            answer: "It triggers an automatic download of a linked resource."
-        },
-        {
-            id: 5,
-            question: "Explain the purpose of the HTML 'hidden' attribute.",
-            options: [
-                "To hide content from specific browsers.",
-                "To conceal data from search engines.",
-                "To prevent content from being displayed on the web page.",
-                "To encrypt sensitive information in HTML forms."
-            ],
-            answer: "To prevent content from being displayed on the web page."
-        },
-        {
-            id: 6,
-            question: "How is the 'sandbox' attribute used in HTML?",
-            options: [
-                "To create a secure environment for executing scripts in HTML documents.",
-                "To restrict the types of images that can be displayed in HTML.",
-                "To define storage limitations for cookies in HTML forms.",
-                "To prevent user interaction within an HTML document."
-            ],
-            answer: "To create a secure environment for executing scripts in HTML documents."
-        },
-        {
-            id: 7,
-            question: "What role does the 'pre' tag serve in HTML?",
-            options: [
-                "It formats text exactly as it appears in the HTML code.",
-                "It specifies the preferred language for the content in HTML.",
-                "It enables printing of the HTML document.",
-                "It adjusts the font size of text in HTML elements."
-            ],
-            answer: "It formats text exactly as it appears in the HTML code."
-        },
-        {
-            id: 8,
-            question: "Describe the functionality of the 'meter' element in HTML5.",
-            options: [
-                "It measures the temperature of the web page.",
-                "It displays scalar measurements within a known range.",
-                "It calculates the performance metrics of an HTML document.",
-                "It formats text content based on measurement units in HTML."
-            ],
-            answer: "It displays scalar measurements within a known range."
-        },
-        {
-            id: 9,
-            question: "What does the 'required' attribute do in HTML forms?",
-            options: [
-                "It ensures the user's browser meets specific requirements for displaying HTML content.",
-                "It verifies the validity of the submitted data in HTML forms.",
-                "It imposes a mandatory field in an HTML form that must be filled out.",
-                "It limits the file size for attachments in HTML form submissions."
-            ],
-            answer: "It imposes a mandatory field in an HTML form that must be filled out."
-        },
-        {
-            id: 10,
-            question: "Explain the purpose of the 'autocomplete' attribute in HTML forms.",
-            options: [
-                "It auto-suggests possible values for an input field in HTML forms.",
-                "It completes HTML code syntax automatically.",
-                "It authenticates user credentials in HTML forms.",
-                "It optimizes the display of autocomplete options in dropdown menus."
-            ],
-            answer: "It auto-suggests possible values for an input field in HTML forms."
-        },
-    ]
-};
+        questions: [
+            {
+                id: 1,
+                question: "What is the purpose of the HTML 'data' attribute?",
+                options: [
+                    "To store custom data for an HTML element.",
+                    "To define a dataset in HTML.",
+                    "To link external data sources to an HTML document.",
+                    "To validate input fields in HTML forms.",
+                ],
+                answer: "To store custom data for an HTML element.",
+            },
+            {
+                id: 2,
+                question:
+                    "Explain the functionality of the 'figure' and 'figcaption' elements in HTML.",
+                options: [
+                    "They are used for embedding videos in HTML.",
+                    "They create images with captions in HTML.",
+                    "They structure forms and input elements in HTML.",
+                    "They are utilized for audio playback in HTML.",
+                ],
+                answer: "They create images with captions in HTML.",
+            },
+            {
+                id: 3,
+                question:
+                    "Describe the use of the 'details' and 'summary' elements in HTML5.",
+                options: [
+                    "They are used for defining mathematical formulas in HTML.",
+                    "They provide a summary of a web page's content.",
+                    "They structure data tables in HTML.",
+                    "They create collapsible content sections in HTML.",
+                ],
+                answer: "They create collapsible content sections in HTML.",
+            },
+            {
+                id: 4,
+                question: "What does the 'download' attribute do in HTML?",
+                options: [
+                    "It initiates a file upload when clicked.",
+                    "It triggers an automatic download of a linked resource.",
+                    "It enables dynamic content loading in HTML documents.",
+                    "It defines the font used for text in HTML elements.",
+                ],
+                answer: "It triggers an automatic download of a linked resource.",
+            },
+            {
+                id: 5,
+                question: "Explain the purpose of the HTML 'hidden' attribute.",
+                options: [
+                    "To hide content from specific browsers.",
+                    "To conceal data from search engines.",
+                    "To prevent content from being displayed on the web page.",
+                    "To encrypt sensitive information in HTML forms.",
+                ],
+                answer: "To prevent content from being displayed on the web page.",
+            },
+            {
+                id: 6,
+                question: "How is the 'sandbox' attribute used in HTML?",
+                options: [
+                    "To create a secure environment for executing scripts in HTML documents.",
+                    "To restrict the types of images that can be displayed in HTML.",
+                    "To define storage limitations for cookies in HTML forms.",
+                    "To prevent user interaction within an HTML document.",
+                ],
+                answer: "To create a secure environment for executing scripts in HTML documents.",
+            },
+            {
+                id: 7,
+                question: "What role does the 'pre' tag serve in HTML?",
+                options: [
+                    "It formats text exactly as it appears in the HTML code.",
+                    "It specifies the preferred language for the content in HTML.",
+                    "It enables printing of the HTML document.",
+                    "It adjusts the font size of text in HTML elements.",
+                ],
+                answer: "It formats text exactly as it appears in the HTML code.",
+            },
+            {
+                id: 8,
+                question:
+                    "Describe the functionality of the 'meter' element in HTML5.",
+                options: [
+                    "It measures the temperature of the web page.",
+                    "It displays scalar measurements within a known range.",
+                    "It calculates the performance metrics of an HTML document.",
+                    "It formats text content based on measurement units in HTML.",
+                ],
+                answer: "It displays scalar measurements within a known range.",
+            },
+            {
+                id: 9,
+                question:
+                    "What does the 'required' attribute do in HTML forms?",
+                options: [
+                    "It ensures the user's browser meets specific requirements for displaying HTML content.",
+                    "It verifies the validity of the submitted data in HTML forms.",
+                    "It imposes a mandatory field in an HTML form that must be filled out.",
+                    "It limits the file size for attachments in HTML form submissions.",
+                ],
+                answer: "It imposes a mandatory field in an HTML form that must be filled out.",
+            },
+            {
+                id: 10,
+                question:
+                    "Explain the purpose of the 'autocomplete' attribute in HTML forms.",
+                options: [
+                    "It auto-suggests possible values for an input field in HTML forms.",
+                    "It completes HTML code syntax automatically.",
+                    "It authenticates user credentials in HTML forms.",
+                    "It optimizes the display of autocomplete options in dropdown menus.",
+                ],
+                answer: "It auto-suggests possible values for an input field in HTML forms.",
+            },
+        ],
+    };
 
     const questionContainer = document.getElementById("question-text");
     const questionNumberContainer = document.getElementById("question-number");
@@ -229,6 +232,7 @@ import Footer from "../components/Footer.astro";
         // Create option elements for each option
         currentQuestion.options.forEach((option) => {
             const optionElement = document.createElement("a");
+            optionElement.href = "#";
             optionElement.classList.add(
                 "block",
                 "dark:bg-[#3C4D67]",
