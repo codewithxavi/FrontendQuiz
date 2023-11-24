@@ -1,54 +1,29 @@
-# Astro Starter Kit: Basics
+<div style="width: 350px">
+  <img src="./public/assets/img/home.png" alt="FrontendQuiz"/>
+</div>
 
-```sh
-npm create astro@latest -- --template basics
-```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+<br/>
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+# FrontendQuiz
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+¿Eres un experto en HTML? ¿Conoces todas las propiedades y selectores de CSS? ¿Sabes cómo funciona JavaScript? ¡Pon a prueba tus habilidades y conviértete en un maestro de las tecnologías web!
 
-## 🚀 Project Structure
+En FrontendQuiz encontrarás preguntas de diferentes niveles de dificultad, desde lo más básico hasta lo más avanzado. También podrás elegir entre diferentes temas, como HTML, CSS, JavaScript, accesibilidad, etc.
 
-Inside of your Astro project, you'll see the following folders and files:
+¿Quieres aprender más sobre una tecnología específica? Visita el apartado de FrontendWiki, donde encontrarás información detallada sobre cada tema, incluyendo ejemplos de código, tutoriales y más.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+¡No esperes más y empieza a jugar!
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+[Sitio Web](https://frontend-quiz-xavi.vercel.app/) 🖥️
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Sobre el proyecto
 
-## 🧞 Commands
+* Diseño responsive, garantizando que los usuarios puedan disfrutar plenamente de la aplicación independientemente del dispositivo que utilicen, desde un teléfono móvil hasta una pantalla de escritorio.
 
-All commands are run from the root of the project, from a terminal:
+<!-- ![Responsive](docs/mockup.png) -->
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Tecnologías utilizadas
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+![Tailwind](https://img.shields.io/badge/Tailwind%20CSS-06B6D4.svg?style=for-the-badge&logo=Tailwind-CSS&logoColor=white)&nbsp;&nbsp;&nbsp;

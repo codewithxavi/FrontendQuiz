@@ -10,14 +10,14 @@ const { title } = Astro.props;
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content="¿Quieres poner a prueba tus conocimientos de frontend? En nuestro quiz encontrarás preguntas de HTML, CSS, JavaScript y Accesibilidad, con diferentes niveles de dificultad. ¡Prueba tus habilidades y mejora tu carrera profesional!" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<link rel="stylesheet" href="../styles/styles.css">
 	</head>
-	<body class="bg-[url('/assets/img/patternpad.svg')] bg-cover" >
+	<body class="bg-cover bg-[url('/assets/img/light-pattern.svg')] dark:bg-cover dark:bg-[url('/assets/img/dark-pattern.svg')]" >
 		<slot />
 	</body>
 </html>

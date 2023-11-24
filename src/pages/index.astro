@@ -2,30 +2,36 @@
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import Header from "../components/Header.astro";
-import ThemeIcon from '../components/ThemeIcon.astro';
+import ThemeIcon from "../components/ThemeIcon.astro";
+import Footer from "../components/Footer.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-	
+<Layout
+	title="Frontend Quiz: Pon a prueba tus conocimientos de HTML, CSS, JavaScript y Accesibilidad"
+>
 	<div class="fixed top-5 right-10">
-		<ThemeIcon  />
+		<ThemeIcon />
 	</div>
-	<main class="p-5 md:p-10 flex-col lg:flex-row lg:flex lg:gap-12 max-w-7xl m-auto h-screen flex  items-center ">
-		
+	<main
+		class="p-5 md:p-10 flex-col lg:flex-row lg:flex lg:gap-12 max-w-7xl m-auto h-screen flex items-center"
+	>
 		<div class="lg:mt-[-300px]">
-			<h1 class="text-stone-50 text-6xl lg:text-6xl mt-10 ">
-				Welcome to the <span class="font-semibold pb-4">
-					Frontend Quiz!</span
+			<h1
+				class="text-6xl lg:text-6xl mt-10 dark:text-stone-50 text-[#7e7e7e]"
+			>
+				Welcome to the <span class="font-semibold pb-4"
+					>Frontend Quiz!</span
 				>
 			</h1>
-			<span class="text-stone-300 italic font-thin pb-6 mt-6 block lg:mt-10"
-				>Pick a subject to get started.</span
+			<span
+				class="dark:text-stone-300 italic font-thin pb-6 mt-6 block lg:mt-10"
+				>Pick a subject to get started. Last Updated: November 2023</span
 			>
 		</div>
 		<div class="row mt-10 w-full lg:w-4/5" id="technologies-container">
-
 		</div>
 	</main>
+	<Footer />
 </Layout>
 
 <script>
@@ -73,11 +79,10 @@ import ThemeIcon from '../components/ThemeIcon.astro';
 			const cardDiv = document.createElement("div");
 			cardDiv.innerHTML = `
         
-			<a class="hover:bg-[#199AFC] transition duration-300 flex gap-10 items-center rounded-3xl text-stone-50 font-semibold card shadow rounded-lg p-5 bg-[#3C4D67] mb-5" href="${href}">
+			<a class="dark:bg-[#3C4D67] dark:hover:bg-[#199AFC] bg-[#F3F4F6] hover:bg-[#199AFC] transition duration-300 flex gap-10 items-center rounded-3xl text-stone-50 font-semibold card shadow-lg rounded-lg p-5 mb-5" href="${href}">
 				<img src="${thumbnail}" class="card-img-top" alt="${tech}" width="50"> 
-				<h5 class="card-title text-xl text-stone-200">${tech}</h5>
+				<h5 class="card-title text-xl dark:text-stone-200 text-[#7e7e7e] ">${tech}</h5>
 			</a>
-       
 
 		
 
