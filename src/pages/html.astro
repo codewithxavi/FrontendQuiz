@@ -24,35 +24,28 @@ import Footer from "../components/Footer.astro";
         </div>
 
         <div
-            class="p-5 md:p-4 flex-col lg:flex-row lg:flex lg:gap-12 max-w-7xl m-auto h-screen flex items-center lg:justify-center"
+            class="p-5 md:p-4 flex-col lg:flex-row lg:flex lg:gap-12 max-w-7xl flex lg:justify-center"
         >
-            <div class="lg:mt-[-300px] w-full flex lg:flex-row flex-col lg:justify-evenly gap-8">
+            <div
+                class="w-full flex lg:flex-row flex-col lg:justify-between gap-2"
+            >
                 <div class="lg:w-1/2 w-full">
                     <div class="text-stone-300 italic font-thin block">
                         Question <span id="question-number">1</span> of 10
                     </div>
                     <h1
-                        class="mt-10 text-2xl text-semibold font-semibold text-[#7e7e7e] dark:text-stone-50 mb-10"
+                        class="text-2xl text-semibold font-semibold text-[#7e7e7e] dark:text-stone-50 mb-10"
                         id="question-text"
                     >
                     </h1>
 
-
                     <div id="meterContainer"></div>
 
-                    <a href="/" class="top-6 mt-14 relative">
-                        <button
-                            type="button"
-                            class="dark:text-gray-100 text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
-                            >Go Back 👈🏻</button
-                        ></a
-                    >
+                   
                 </div>
-                <div id="options-container"></div>
+                <div id="options-container" class="lg:w-1/2 w-full"></div>
             </div>
         </div>
-
-        
 
         <div
             class="fixed inset-0 flex z-50 hidden items-center justify-center"
@@ -68,6 +61,78 @@ import Footer from "../components/Footer.astro";
                 >
                     X
                 </button>
+            </div>
+        </div>
+
+
+        <a href="/" class="top-6 mt-14 relative p-5">
+            <button
+                type="button"
+                class="dark:text-gray-100 text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
+                >Go Back 👈🏻</button
+            ></a
+        >
+
+        <h2
+            class="text-2xl font-semibold text-[#7e7e7e] dark:text-stone-50 text-center underline"
+        >
+            Reference Creators
+        </h2>
+
+        <!--Grid gallery creators -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <!-- Creator 1 -->
+            <div class="p-4">
+                <a href="https://portfolio-sara.vercel.app/" target="_blank">
+                    <img
+                        src="/assets/img/saramontagud.png"
+                        alt="afor digital, full stack developer"
+                        class="rounded-xl"
+                    />
+                </a>
+            </div>
+
+            <!-- Creator 2 -->
+            <div class="p-4">
+                <a href="https://www.kevinpowell.co/" target="_blank">
+                    <img
+                        src="/assets/img/kevinpowell.png"
+                        alt="kevin powell, css evangelist"
+                        class="rounded-xl"
+                    />
+                </a>
+            </div>
+
+            <!-- Creator 3 -->
+            <div class="p-4">
+                <a href="https://guillermorodas.com/" target="_blank">
+                    <img
+                        src="/assets/img/guillermorodas.png"
+                        alt="guillermorodas, full stack developer"
+                        class="rounded-xl"
+                    />
+                </a>
+            </div>
+
+            <!-- Creator 4 -->
+            <div class="p-4 group">
+                <a href="https://recursoscosmicos.com/" target="_blank" class="group-hover:filter group-hover:brightness-125 transition duration-300">
+                    <img
+                        src="/assets/img/carmenansio.png"
+                        alt="carmen ansio, ux ui designer"
+                        class="rounded-xl hover:filter hover:brightness-125 transition duration-300"
+                    />
+                </a>
+            </div>
+
+            <!-- Creator 5 -->
+            <div class="p-4">
+                <!-- Creator content -->
+            </div>
+
+            <!-- Creator 6 -->
+            <div class="p-4">
+                <!-- Creator content -->
             </div>
         </div>
     </main>
