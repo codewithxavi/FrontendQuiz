@@ -6,31 +6,31 @@ import ThemeIcon from "../components/ThemeIcon.astro";
 import Footer from "../components/Footer.astro";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Frontend Quiz: Pon a prueba tus conocimientos de HTML, CSS, JavaScript y Accesibilidad">
     <main class="max-w-7xl m-auto">
         <div class="top-2 w-full p-5">
             <div class="flex gap-5 flex-row justify-between items-center">
                 <div class="flex items-center gap-10">
-                    <img src="/assets/img/html5.svg" alt="html5" width="40px" />
-                    <span class="text-stone-50">HTML5</span>
+                  <img src="/assets/img/html5.svg" alt="html5" width="60px" />
+                  <!-- <span class="text-stone-50 text-3xl font-semibold dark:text-stone-50 text-[#7e7e7e]">HTML5</span> -->
                 </div>
                 <div class="flex items-center">
-                    <!-- Ensure ThemeIcon has content or proper settings -->
-                    <ThemeIcon />
+                  <!-- Ensure ThemeIcon has content or proper settings -->
+                  <ThemeIcon />
                 </div>
-            </div>
+              </div>
         </div>
 
         <div
-            class="p-5 pt-5 md:p-10 flex-col lg:flex-row lg:flex lg:gap-12 max-w-7xl m-auto h-screen flex items-center mt-10"
+            class="p-5 md:p-4 flex-col lg:flex-row lg:flex lg:gap-12 max-w-7xl m-auto h-screen flex items-center"
         >
             <div class="lg:mt-[-300px] w-full">
-                <div class="text-stone-300 italic font-thin block lg:mt-10">
+                <div class="text-stone-300 italic font-thin block">
                     Question <span id="question-number">1</span> of 10
                 </div>
 
                 <h1
-                    class="text-stone-50 mt-10 text-2xl text-semibold font-semibold"
+                    class="mt-10 text-2xl text-semibold font-semibold text-[#7e7e7e] dark:text-stone-50"
                     id="question-text"
                 >
                     What does HTML stand for?
@@ -39,32 +39,39 @@ import Footer from "../components/Footer.astro";
                 <div id="meterContainer"></div>
 
                 <div id="options-container"></div>
-            </div>
 
-            <!-- <div class="w-full">
-            <input
-                class="text-2xl rounded-3xl text-white font-semibold p-5 mt-10 w-full bg-[#A629F5]"
-                type="button"
-                value="Submit answer"
-                id="submit-answer"
-            />
-        </div> -->
+                <a href="/" class="pt-10">
+                    <button
+                        type="button"
+                        class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
+                        >Go Back 👈🏻</button
+                    ></a
+                >  
+
+                <!-- Here links to the other questionaries CSS and JavaScript will be added and Accesibility -->
+
+               
+
+            </div>
         </div>
 
         <div
-            class="fixed inset-0 flex items-center justify-center z-50 hidden items-center justify-center"
-            id="modal"
+        class="fixed inset-0 flex z-50 hidden items-center justify-center"
+        id="modal"
+    >
+        <div
+            class="h-[250px] mt-[320px] bg-white p-4 rounded shadow-lg w-1/3 m-auto text-center relative"
         >
-            <div
-                class="h-[250px] mt-[270px] bg-white p-4 rounded shadow-lg w-full m-auto text-center"
+            <p class="text-lg">Are you sure?</p>
+            <button
+                class="mt-4 px-4 py-2 bg-blue-500 text-white rounded absolute top-2 right-2"
+                id="modalCloseButton"
             >
-                <p class="text-lg">Are you sure?</p>
-                <button
-                    class="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
-                    id="modalCloseButton">Close</button
-                >
-            </div>
+                X
+            </button>
         </div>
+    </div>
+    </div>
     </main>
     <Footer />
 </Layout>
@@ -82,88 +89,119 @@ import Footer from "../components/Footer.astro";
     }
 
     const topicsHTML = {
-        questions: [
-            {
-                id: 1,
-                question: "What does HTML stand for?",
-                options: [
-                    "Hyper Text Markup Language",
-                    "Hyperlinks and Text Markup Language",
-                    "Home Tool Markup Language",
-                    "Hyper Tool Markup Language",
-                ],
-                answer: "Hyper Text Markup Language",
-            },
-            {
-                id: 2,
-                question:
-                    "Which tag is used to define an unordered list in HTML?",
-                options: ["<ul>", "<ol>", "<list>", "<li>"],
-                answer: "<ul>",
-            },
-            {
-                id: 3,
-                question: "Which tag is used to create a hyperlink in HTML?",
-                options: ["<a>", "<link>", "<href>", "<ref>"],
-                answer: "<a>",
-            },
-            {
-                id: 4,
-                question:
-                    "Which HTML attribute specifies an alternate text for an image?",
-                options: ["alt", "title", "src", "href"],
-                answer: "alt",
-            },
-            {
-                id: 5,
-                question: "What does CSS stand for?",
-                options: [
-                    "Cascading Style Sheets",
-                    "Creative Style Sheets",
-                    "Computer Style Sheets",
-                    "Colorful Style Sheets",
-                ],
-                answer: "Cascading Style Sheets",
-            },
-            {
-                id: 6,
-                question:
-                    "Which HTML tag is used to define the structure of an HTML document?",
-                options: ["<html>", "<body>", "<head>", "<DOCTYPE html>"],
-                answer: "<html>",
-            },
-            {
-                id: 7,
-                question: "Which tag is used to define a table row in HTML?",
-                options: ["<tr>", "<table>", "<td>", "<th>"],
-                answer: "<tr>",
-            },
-            {
-                id: 8,
-                question: "What does the '<aside>' tag in HTML represent?",
-                options: ["A footer", "A sidebar", "An article", "A section"],
-                answer: "A sidebar",
-            },
-            {
-                id: 9,
-                question:
-                    "Which HTML tag is used for creating an ordered list?",
-                options: ["<ol>", "<ul>", "<li>", "<list>"],
-                answer: "<ol>",
-            },
-            {
-                id: 10,
-                question: "What does the '<hr>' tag in HTML stand for?",
-                options: [
-                    "Horizontal Rule",
-                    "Header",
-                    "Highlight Row",
-                    "Hyper Reference",
-                ],
-                answer: "Horizontal Rule",
-            },
-        ],
-    };
+    questions: [
+        {
+            id: 1,
+            question: "What is the purpose of the HTML 'data' attribute?",
+            options: [
+                "To store custom data for an HTML element.",
+                "To define a dataset in HTML.",
+                "To link external data sources to an HTML document.",
+                "To validate input fields in HTML forms."
+            ],
+            answer: "To store custom data for an HTML element."
+        },
+        {
+            id: 2,
+            question: "Explain the functionality of the 'figure' and 'figcaption' elements in HTML.",
+            options: [
+                "They are used for embedding videos in HTML.",
+                "They create images with captions in HTML.",
+                "They structure forms and input elements in HTML.",
+                "They are utilized for audio playback in HTML."
+            ],
+            answer: "They create images with captions in HTML."
+        },
+        {
+            id: 3,
+            question: "Describe the use of the 'details' and 'summary' elements in HTML5.",
+            options: [
+                "They are used for defining mathematical formulas in HTML.",
+                "They provide a summary of a web page's content.",
+                "They structure data tables in HTML.",
+                "They create collapsible content sections in HTML."
+            ],
+            answer: "They create collapsible content sections in HTML."
+        },
+        {
+            id: 4,
+            question: "What does the 'download' attribute do in HTML?",
+            options: [
+                "It initiates a file upload when clicked.",
+                "It triggers an automatic download of a linked resource.",
+                "It enables dynamic content loading in HTML documents.",
+                "It defines the font used for text in HTML elements."
+            ],
+            answer: "It triggers an automatic download of a linked resource."
+        },
+        {
+            id: 5,
+            question: "Explain the purpose of the HTML 'hidden' attribute.",
+            options: [
+                "To hide content from specific browsers.",
+                "To conceal data from search engines.",
+                "To prevent content from being displayed on the web page.",
+                "To encrypt sensitive information in HTML forms."
+            ],
+            answer: "To prevent content from being displayed on the web page."
+        },
+        {
+            id: 6,
+            question: "How is the 'sandbox' attribute used in HTML?",
+            options: [
+                "To create a secure environment for executing scripts in HTML documents.",
+                "To restrict the types of images that can be displayed in HTML.",
+                "To define storage limitations for cookies in HTML forms.",
+                "To prevent user interaction within an HTML document."
+            ],
+            answer: "To create a secure environment for executing scripts in HTML documents."
+        },
+        {
+            id: 7,
+            question: "What role does the 'pre' tag serve in HTML?",
+            options: [
+                "It formats text exactly as it appears in the HTML code.",
+                "It specifies the preferred language for the content in HTML.",
+                "It enables printing of the HTML document.",
+                "It adjusts the font size of text in HTML elements."
+            ],
+            answer: "It formats text exactly as it appears in the HTML code."
+        },
+        {
+            id: 8,
+            question: "Describe the functionality of the 'meter' element in HTML5.",
+            options: [
+                "It measures the temperature of the web page.",
+                "It displays scalar measurements within a known range.",
+                "It calculates the performance metrics of an HTML document.",
+                "It formats text content based on measurement units in HTML."
+            ],
+            answer: "It displays scalar measurements within a known range."
+        },
+        {
+            id: 9,
+            question: "What does the 'required' attribute do in HTML forms?",
+            options: [
+                "It ensures the user's browser meets specific requirements for displaying HTML content.",
+                "It verifies the validity of the submitted data in HTML forms.",
+                "It imposes a mandatory field in an HTML form that must be filled out.",
+                "It limits the file size for attachments in HTML form submissions."
+            ],
+            answer: "It imposes a mandatory field in an HTML form that must be filled out."
+        },
+        {
+            id: 10,
+            question: "Explain the purpose of the 'autocomplete' attribute in HTML forms.",
+            options: [
+                "It auto-suggests possible values for an input field in HTML forms.",
+                "It completes HTML code syntax automatically.",
+                "It authenticates user credentials in HTML forms.",
+                "It optimizes the display of autocomplete options in dropdown menus."
+            ],
+            answer: "It auto-suggests possible values for an input field in HTML forms."
+        },
+    ]
+};
 
     const questionContainer = document.getElementById("question-text");
     const questionNumberContainer = document.getElementById("question-number");
@@ -193,9 +231,12 @@ import Footer from "../components/Footer.astro";
             const optionElement = document.createElement("a");
             optionElement.classList.add(
                 "block",
-                "bg-[#3C4D67]",
-                "hover:bg-[#199AFC]",
-                "text-stone-200",
+                "dark:bg-[#3C4D67]",
+                "dark:hover:bg-[#199AFC]",
+                "bg-[#F3F4F6]",
+                "hover:bg-[#FFFBFF]",
+                "dark:text-stone-200",
+                "text-[#7e7e7e]",
                 "font-semibold",
                 "p-4",
                 "rounded-lg",
@@ -253,15 +294,13 @@ import Footer from "../components/Footer.astro";
                 questionContainer.innerHTML =
                     "<h2>All questions answered!</h2>";
 
-                    meterValue += 0.1; // Increment meter value
+                meterValue += 0.1; // Increment meter value
                 buildMeter(meterValue); // Update the meter value
 
                 //redirect to the home
                 setTimeout(() => {
-                    
                     window.location.href = "/";
-
-                }, 2000)
+                }, 2000);
             }
         } else {
             // Open the modal
