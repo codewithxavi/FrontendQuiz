@@ -82,14 +82,21 @@ import Footer from "../components/Footer.astro";
         <!--Grid gallery creators -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             <!-- Creator 1 -->
-            <div class="p-4">
-                <a href="https://portfolio-sara.vercel.app/" target="_blank">
+            <div class="p-4 group grid grid-rows-[1fr] grid-cols-[1fr] relative">
+                <a href="https://portfolio-sara.vercel.app/" target="_blank" class="col-start-1 col-end-2 row-start-1 row-end-2">
                     <img
                         src="/assets/img/saramontagud.png"
                         alt="afor digital, full stack developer"
                         class="rounded-xl"
                     />
                 </a>
+                <div class="col-start-1 col-end-2 row-start-1 row-end-2 absolute right-0 top-[-60px]">
+                    <img
+                        src="/assets/img/this-is-fine.webp"
+                        alt="this is fine"
+                        class="hidden group-hover:block rounded-xl w-20 transition-transform duration-300 transform translate-y-full group-hover:translate-y-0"
+                    />
+                </div>
             </div>
 
             <!-- Creator 2 -->
