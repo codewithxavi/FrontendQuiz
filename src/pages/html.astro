@@ -15,7 +15,7 @@ const { tech } = Astro.props;
 <Layout
     title="Frontend Quiz: Pon a prueba tus conocimientos de HTML, CSS, JavaScript y Accesibilidad"
 >
-    <main class="max-w-7xl m-auto" >
+    <main class="max-w-7xl m-auto">
         <div class="top-2 w-full p-5">
             <div class="flex gap-5 flex-row justify-between items-center">
                 <div class="flex items-center gap-10">
@@ -48,8 +48,6 @@ const { tech } = Astro.props;
                     <div id="meterContainer"></div>
                 </div>
                 <div id="options-container" class="lg:w-1/2 w-full"></div>
-
-                
             </div>
         </div>
 
@@ -191,8 +189,29 @@ const { tech } = Astro.props;
             </div>
 
             <!-- Creator 5 -->
-            <div class="p-4">
-                <!-- Creator content -->
+            <div
+                class="p-4 group grid grid-rows-[1fr] grid-cols-[1fr] relative"
+            >
+                <a
+                    href="https://blog.gonzalopozzo.com/"
+                    target="_blank"
+                    class="col-start-1 col-end-2 row-start-1 row-end-2"
+                >
+                    <img
+                        src="/assets/img/goncy.png"
+                        alt="goncy, full stack developer"
+                        class="rounded-xl"
+                    />
+                </a>
+                <div
+                    class="col-start-1 col-end-2 row-start-1 row-end-2 absolute right-0 top-[-60px]"
+                >
+                    <img
+                        src="/assets/img/this-is-fine.webp"
+                        alt="this is fine"
+                        class="hidden group-hover:block rounded-xl w-20 transition-transform duration-300 transform translate-y-full group-hover:translate-y-0"
+                    />
+                </div>
             </div>
 
             <!-- Creator 6 -->
@@ -466,10 +485,6 @@ const { tech } = Astro.props;
 
     const modalCloseButton = document.getElementById("modalCloseButton");
     modalCloseButton.addEventListener("click", closeModal);
-
-   
 </script>
-
-
 
 <style></style>
