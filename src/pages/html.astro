@@ -4,12 +4,18 @@ import Card from "../components/Card.astro";
 import Header from "../components/Header.astro";
 import ThemeIcon from "../components/ThemeIcon.astro";
 import Footer from "../components/Footer.astro";
+
+interface Props {
+    tech: string;
+}
+
+const { tech } = Astro.props;
 ---
 
 <Layout
     title="Frontend Quiz: Pon a prueba tus conocimientos de HTML, CSS, JavaScript y Accesibilidad"
 >
-    <main class="max-w-7xl m-auto">
+    <main class="max-w-7xl m-auto" >
         <div class="top-2 w-full p-5">
             <div class="flex gap-5 flex-row justify-between items-center">
                 <div class="flex items-center gap-10">
@@ -40,10 +46,10 @@ import Footer from "../components/Footer.astro";
                     </h1>
 
                     <div id="meterContainer"></div>
-
-                   
                 </div>
                 <div id="options-container" class="lg:w-1/2 w-full"></div>
+
+                
             </div>
         </div>
 
@@ -64,7 +70,6 @@ import Footer from "../components/Footer.astro";
             </div>
         </div>
 
-
         <a href="/" class="top-6 mt-14 relative p-5">
             <button
                 type="button"
@@ -76,21 +81,29 @@ import Footer from "../components/Footer.astro";
         <h2
             class="text-2xl font-semibold text-[#7e7e7e] dark:text-stone-50 text-center underline"
         >
-            Reference Creators
+            Content Creators
         </h2>
 
         <!--Grid gallery creators -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             <!-- Creator 1 -->
-            <div class="p-4 group grid grid-rows-[1fr] grid-cols-[1fr] relative">
-                <a href="https://portfolio-sara.vercel.app/" target="_blank" class="col-start-1 col-end-2 row-start-1 row-end-2">
+            <div
+                class="p-4 group grid grid-rows-[1fr] grid-cols-[1fr] relative"
+            >
+                <a
+                    href="https://portfolio-sara.vercel.app/"
+                    target="_blank"
+                    class="col-start-1 col-end-2 row-start-1 row-end-2"
+                >
                     <img
                         src="/assets/img/saramontagud.png"
                         alt="afor digital, full stack developer"
                         class="rounded-xl"
                     />
                 </a>
-                <div class="col-start-1 col-end-2 row-start-1 row-end-2 absolute right-0 top-[-60px]">
+                <div
+                    class="col-start-1 col-end-2 row-start-1 row-end-2 absolute right-0 top-[-60px]"
+                >
                     <img
                         src="/assets/img/this-is-fine.webp"
                         alt="this is fine"
@@ -100,15 +113,23 @@ import Footer from "../components/Footer.astro";
             </div>
 
             <!-- Creator 2 -->
-            <div class="p-4 group grid grid-rows-[1fr] grid-cols-[1fr] relative">
-                <a href="https://www.kevinpowell.co/" target="_blank" class="col-start-1 col-end-2 row-start-1 row-end-2">
+            <div
+                class="p-4 group grid grid-rows-[1fr] grid-cols-[1fr] relative"
+            >
+                <a
+                    href="https://www.kevinpowell.co/"
+                    target="_blank"
+                    class="col-start-1 col-end-2 row-start-1 row-end-2"
+                >
                     <img
                         src="/assets/img/kevinpowell.png"
                         alt="kevin powell, css evangelist"
                         class="rounded-xl"
                     />
                 </a>
-                <div class="col-start-1 col-end-2 row-start-1 row-end-2 absolute right-0 top-[-60px]">
+                <div
+                    class="col-start-1 col-end-2 row-start-1 row-end-2 absolute right-0 top-[-60px]"
+                >
                     <img
                         src="/assets/img/this-is-fine.webp"
                         alt="this is fine"
@@ -118,15 +139,23 @@ import Footer from "../components/Footer.astro";
             </div>
 
             <!-- Creator 3 -->
-            <div class="p-4 group grid grid-rows-[1fr] grid-cols-[1fr] relative">
-                <a href="https://guillermorodas.com/" target="_blank" class="col-start-1 col-end-2 row-start-1 row-end-2">
+            <div
+                class="p-4 group grid grid-rows-[1fr] grid-cols-[1fr] relative"
+            >
+                <a
+                    href="https://guillermorodas.com/"
+                    target="_blank"
+                    class="col-start-1 col-end-2 row-start-1 row-end-2"
+                >
                     <img
                         src="/assets/img/guillermorodas.png"
                         alt="guillermorodas, full stack developer"
                         class="rounded-xl"
                     />
                 </a>
-                <div class="col-start-1 col-end-2 row-start-1 row-end-2 absolute right-0 top-[-60px]">
+                <div
+                    class="col-start-1 col-end-2 row-start-1 row-end-2 absolute right-0 top-[-60px]"
+                >
                     <img
                         src="/assets/img/this-is-fine.webp"
                         alt="this is fine"
@@ -134,18 +163,25 @@ import Footer from "../components/Footer.astro";
                     />
                 </div>
             </div>
-            
 
             <!-- Creator 4 -->
-            <div class="p-4 group grid grid-rows-[1fr] grid-cols-[1fr] relative">
-                <a href="https://recursoscosmicos.com/" target="_blank" class="col-start-1 col-end-2 row-start-1 row-end-2">
+            <div
+                class="p-4 group grid grid-rows-[1fr] grid-cols-[1fr] relative"
+            >
+                <a
+                    href="https://recursoscosmicos.com/"
+                    target="_blank"
+                    class="col-start-1 col-end-2 row-start-1 row-end-2"
+                >
                     <img
                         src="/assets/img/carmenansio.png"
                         alt="carmen ansio, ux ui designer"
                         class="rounded-xl"
                     />
                 </a>
-                <div class="col-start-1 col-end-2 row-start-1 row-end-2 absolute right-0 top-[-60px]">
+                <div
+                    class="col-start-1 col-end-2 row-start-1 row-end-2 absolute right-0 top-[-60px]"
+                >
                     <img
                         src="/assets/img/this-is-fine.webp"
                         alt="this is fine"
@@ -153,7 +189,6 @@ import Footer from "../components/Footer.astro";
                     />
                 </div>
             </div>
-            
 
             <!-- Creator 5 -->
             <div class="p-4">
@@ -431,6 +466,10 @@ import Footer from "../components/Footer.astro";
 
     const modalCloseButton = document.getElementById("modalCloseButton");
     modalCloseButton.addEventListener("click", closeModal);
+
+   
 </script>
+
+
 
 <style></style>
