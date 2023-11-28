@@ -34,9 +34,13 @@ const { tech } = Astro.props;
         >
             <div
                 class="w-full flex lg:flex-row flex-col lg:justify-between gap-2"
+                id="quiz-container"
             >
                 <div class="lg:w-1/2 w-full">
-                    <div class="text-stone-300 italic font-thin block">
+                    <div
+                        id="question-paragraph"
+                        class="text-stone-300 italic font-thin block"
+                    >
                         Question <span id="question-number">1</span> of 10
                     </div>
                     <h1
@@ -48,23 +52,6 @@ const { tech } = Astro.props;
                     <div id="meterContainer"></div>
                 </div>
                 <div id="options-container" class="lg:w-1/2 w-full"></div>
-            </div>
-        </div>
-
-        <div
-            class="fixed inset-0 flex z-50 hidden items-center justify-center"
-            id="modal"
-        >
-            <div
-                class="h-[250px] mt-[20px] bg-white p-4 rounded shadow-lg md:w-1/3 w-full relative flex justify-center items-center"
-            >
-                <p class="text-lg font-bold">Are you sure?</p>
-                <button
-                    class="mt-4 px-4 py-2 bg-blue-500 text-white rounded absolute top-2 right-2"
-                    id="modalCloseButton"
-                >
-                    X
-                </button>
             </div>
         </div>
 
@@ -224,18 +211,7 @@ const { tech } = Astro.props;
 <Footer />
 
 <script>
-    // Function to build the meter dynamically
-    function openModal() {
-        const modal = document.getElementById("modal");
-        modal.classList.remove("hidden");
-    }
-
-    function closeModal() {
-        const modal = document.getElementById("modal");
-        modal.classList.add("hidden");
-    }
-
-    const topicsHTML = {
+    const Test1 = {
         questions: [
             {
                 id: 1,
@@ -358,16 +334,25 @@ const { tech } = Astro.props;
     const questionContainer = document.getElementById("question-text");
     const questionNumberContainer = document.getElementById("question-number");
     const optionsContainer = document.getElementById("options-container");
-    const submitButton = document.getElementById("submit-answer");
+
+    const questionParagraph = document.getElementById("question-paragraph");
+
+    const quizContainer = document.getElementById("quiz-container");
 
     let currentQuestionIndex = 0;
+    let correctAnswers = 0;
 
-    // Display initial question
-    displayQuestion(currentQuestionIndex);
+    // Function to initialize the quiz
+    function initializeQuiz() {
+        // Shuffle the array of questions randomly
+        Test1.questions.sort(() => Math.random() - 0.5);
 
-    // Function to display a question
+        displayQuestion(currentQuestionIndex);
+    }
+
+    // Function to display a question and its options
     function displayQuestion(index) {
-        const currentQuestion = topicsHTML.questions[index];
+        const currentQuestion = Test1.questions[index];
 
         // Update question text
         questionContainer.innerText = currentQuestion.question;
@@ -380,111 +365,136 @@ const { tech } = Astro.props;
 
         // Create option elements for each option
         currentQuestion.options.forEach((option) => {
-            const optionElement = document.createElement("a");
-            optionElement.href = "#";
-            optionElement.classList.add(
-                "block",
-                "dark:bg-[#3C4D67]",
-                "dark:hover:bg-[#199AFC]",
-                "bg-[#F3F4F6]",
-                "hover:bg-[#FFFBFF]",
-                "dark:text-stone-200",
-                "text-[#7e7e7e]",
-                "font-semibold",
-                "p-4",
-                "rounded-lg",
-                "my-2",
-                "transition",
-                "duration-200",
-            );
-            optionElement.innerText = option;
-
-            // Check if the selected answer is correct
-            const isCorrectAnswer = option === currentQuestion.answer;
-
-            // Set the background color based on the correctness
-            if (isCorrectAnswer) {
-                optionElement.classList.add("bg-green");
-            } else {
-                optionElement.classList.add("bg-red");
-            }
-
+            const optionElement = createOptionElement(option, currentQuestion);
             optionsContainer.appendChild(optionElement);
         });
-
-        // Add click event listener to options
-        const optionElements = optionsContainer.querySelectorAll("a");
-        optionElements.forEach((optionElement, index) => {
-            optionElement.addEventListener("click", () => {
-                const selectedAnswer = currentQuestion.options[index];
-                const isCorrectAnswer = checkAnswer(
-                    selectedAnswer,
-                    currentQuestion.answer,
-                );
-            });
-        });
     }
 
-    // Function to check the selected answer
+    // Function to create an option element
+    function createOptionElement(option, currentQuestion) {
+        const optionElement = document.createElement("a");
+        optionElement.classList.add(
+            "block",
+            "dark:bg-[#3C4D67]",
+            "dark:hover:bg-[#199AFC]",
+            "bg-[#F3F4F6]",
+            "hover:bg-[#FFFBFF]",
+            "dark:text-stone-200",
+            "text-[#7e7e7e]",
+            "font-semibold",
+            "p-4",
+            "rounded-lg",
+            "my-2",
+            "transition",
+            "duration-200",
+        );
+        optionElement.innerText = option;
 
-    let meterValue = 0.0; // Initial value
-    const totalQuestions = topicsHTML.questions.length;
-    let meterElement = null;
+        optionElement.addEventListener("click", () =>
+            handleOptionClick(option, currentQuestion),
+        );
 
-    function checkAnswer(selectedAnswer, correctAnswer) {
-        if (selectedAnswer === correctAnswer) {
-            // Increment question index
-            currentQuestionIndex++;
+        return optionElement;
+    }
 
-            if (currentQuestionIndex < topicsHTML.questions.length) {
-                // Display next question
-                displayQuestion(currentQuestionIndex);
+    // Function to handle option click
+    function handleOptionClick(option, currentQuestion) {
+        // Check if option is correct
+        if (option === currentQuestion.answer) {
+            correctAnswers++;
+        }
 
-                meterValue += 0.1; // Increment meter value
-                buildMeter(meterValue); // Update the meter value
-            } else {
-                // All questions answered
-                questionContainer.innerHTML =
-                    "<h2>All questions answered!</h2>";
+        // Increment current question index
+        currentQuestionIndex++;
 
-                meterValue += 0.1; // Increment meter value
-                buildMeter(meterValue); // Update the meter value
-
-                //redirect to the home
-                setTimeout(() => {
-                    window.location.href = "/";
-                }, 2000);
-            }
+        // Check if there are more questions or quiz is finished
+        if (currentQuestionIndex < Test1.questions.length) {
+            displayQuestion(currentQuestionIndex);
         } else {
-            // Open the modal
-            openModal();
+            // Display quiz results or perform any final actions
+            displayResults();
         }
     }
 
-    function buildMeter(value) {
-        const meterContainer = document.getElementById("meterContainer");
+    // Function to display quiz results
+    function displayResults() {
+        // Clear the options container
+        optionsContainer.innerHTML = "";
 
-        // Calculate the maximum value
-        const max = totalQuestions * 0.1;
+        questionContainer.innerText = "Quiz Completed!";
+        questionContainer.classList.add(
+            "dark:text-stone-200",
+            "text-3xl",
+            "text-[#7e7e7e]",
+            "font-semibold",
+            "p-4",
+            "rounded-lg",
+            "my-2",
+            "dark:hover:bg-[#199AFC]",
+            "rounded-lg",
+            "my-2",
+        );
 
-        if (meterElement) {
-            // Update the existing meter element
-            meterElement.value = value;
-            meterElement.max = max;
-        } else {
-            // Create the <meter> element
-            meterElement = document.createElement("meter");
-            meterElement.className = "w-full";
-            meterElement.value = value;
-            meterElement.max = max;
+        questionParagraph.style.display = "none";
 
-            // Append the <meter> element to the container
-            meterContainer.appendChild(meterElement);
-        }
+        questionNumberContainer.innerText = "";
+
+        // Display quiz results or perform any final actions
+        const resultText = document.createElement("p");
+        resultText.innerText = `Total Correct Answers: ${correctAnswers}`;
+        resultText.classList.add(
+            "dark:text-stone-200",
+            "text-3xl",
+            "text-[#7e7e7e]",
+            "font-semibold",
+            "p-4",
+            "rounded-lg",
+            "my-2",
+            "transition",
+            "duration-200",
+            "text-center",
+            "bg-[#F3F4F6]",
+            "dark:bg-[#3C4D67]",
+            "dark:hover:bg-[#199AFC]",
+            "rounded-lg",
+            "my-2",
+        );
+        optionsContainer.appendChild(resultText);
+
+        // Create a "Play Again" button
+        const playAgainButton = document.createElement("button");
+        playAgainButton.innerText = "Play Again";
+        playAgainButton.classList.add(
+            "w-full",
+            "bg-purple-400",
+            "dark:text-stone-200",
+            "text-3xl",
+            "text-[white]",
+            "font-semibold",
+            "p-4",
+            "rounded-lg",
+            "my-2",
+            "transition",
+        );
+        playAgainButton.addEventListener("click", startQuizAgain);
+        optionsContainer.appendChild(playAgainButton);
     }
 
-    const modalCloseButton = document.getElementById("modalCloseButton");
-    modalCloseButton.addEventListener("click", closeModal);
+    // Function to start the quiz again
+    function startQuizAgain() {
+        // Reset quiz variables
+        currentQuestionIndex = 0;
+        correctAnswers = 0;
+
+        // Make question-paragraph visible
+        questionParagraph.style.display = "block";
+
+        // Initialize the quiz again
+        initializeQuiz();
+    }
+
+    // Initialize the quiz when the page loads
+    initializeQuiz();
 </script>
 
 <style></style>

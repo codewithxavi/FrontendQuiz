@@ -1,0 +1,52 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Header from "../components/Header.astro";
+import ThemeIcon from "../components/ThemeIcon.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+    title="Frontend Quiz: Pon a prueba tus conocimientos de HTML, CSS, JavaScript y Accesibilidad"
+>
+    <div class="max-w-7xl m-auto">
+        <Header />
+    </div>
+
+    <main
+        class="max-w-7xl m-auto p-5 flex lg:mt-28 text-center justify-center flex-col"
+    >
+        <h1 class="text-6xl lg:text-6xl dark:text-stone-50 text-[#7e7e7e] mb-5">
+            Whoops that page is gone
+        </h1>
+
+        <img
+            width="500px"
+            class="text-center m-auto"
+            src="/assets/img/this-is-fine-404.gif"
+            alt="this is fine"
+            class="w-[300px] max-w-sm rounded-xl"
+        />
+    </main>
+
+    <div class="text-center text-black dark:text-white ">
+        Questionaries available:
+        <ul>
+            <li>
+                <a href="/html/">HTML</a>
+            </li>
+            <li>
+                <a href="/css/">CSS</a>
+            </li>
+            <li>
+                <a href="/js/">JavaScript</a>
+            </li>
+            <li>
+                <a href="/accessibility/">Accessibility</a>
+            </li>
+        </ul>
+    </div>
+</Layout>
+<Footer />
+
+<style></style>
